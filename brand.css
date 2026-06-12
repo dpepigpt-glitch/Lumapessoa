@@ -1,0 +1,145 @@
+/* ============================================================
+   LUMA PESSOA — Design System
+   Fisioterapia Dermatofuncional & Tricologia
+   Núcleo de marca: tokens, logotipo, tratamento de fotos,
+   componentes reutilizáveis para automação de conteúdo.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root{
+  /* —— Paleta oficial —— */
+  --verde:      #2F3A2E;   /* verde profundo — base, autoridade */
+  --verde-2:    #3B4838;   /* verde elevado (cards sobre verde) */
+  --sage:       #7CBA74;   /* verde sage — vitalidade, bem-estar */
+  --bege:       #DCCBB2;   /* bege — acolhimento */
+  --ouro:       #C9A87B;   /* dourado — sofisticação, ciência */
+  --ouro-esc:   #A6824C;   /* dourado escuro — texto de contraste */
+  --creme:      #F5F2ED;   /* creme — fundo claro principal */
+  --creme-2:    #EDE7DC;   /* creme alternativo */
+  --branco:     #FBFAF7;
+  --tinta:      #262A23;   /* texto principal */
+  --tinta-soft: #5A5F52;   /* texto secundário */
+
+  /* —— Tipografia —— */
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'Montserrat', system-ui, sans-serif;
+
+  /* —— Métrica —— */
+  --tracking-eyebrow: .34em;
+  --radius: 18px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; }
+body{ font-family:var(--sans); color:var(--tinta); -webkit-font-smoothing:antialiased; }
+
+/* ============================================================
+   TIPOGRAFIA — escala de marca
+   ============================================================ */
+.eyebrow{
+  font-family:var(--sans); font-weight:600;
+  letter-spacing:var(--tracking-eyebrow); text-transform:uppercase;
+  color:var(--ouro-esc); font-size:.78rem;
+}
+.display{ font-family:var(--serif); font-weight:500; line-height:1.02; letter-spacing:-.01em; }
+.display em{ font-style:italic; color:var(--ouro-esc); }
+h1,h2,h3{ font-family:var(--serif); font-weight:500; letter-spacing:-.01em; }
+p{ line-height:1.6; }
+
+/* divisor ornamental com losango (assinatura da marca) */
+.ornament{ display:flex; align-items:center; gap:12px; color:var(--ouro); }
+.ornament::before,.ornament::after{ content:""; height:1px; background:currentColor; flex:1; opacity:.55; }
+.ornament .diamond{ width:7px; height:7px; background:currentColor; transform:rotate(45deg); flex:0 0 auto; }
+
+/* sublinhado curto dourado (usado abaixo de eyebrows e títulos) */
+.rule-gold{ width:64px; height:2px; background:var(--ouro); border:0; margin:0; }
+
+/* ============================================================
+   LOGOTIPO / ASSINATURA  (injetado por brand.js)
+   ============================================================ */
+.luma-sign{ display:flex; flex-direction:column; align-items:center; gap:.55em; text-align:center; color:var(--verde); }
+.luma-sign.on-dark{ color:var(--creme); }
+.luma-mark{ display:block; }
+.luma-word{ font-family:var(--serif); font-weight:500; letter-spacing:.22em; line-height:1; text-transform:uppercase; }
+.luma-sub{ font-family:var(--sans); font-weight:500; letter-spacing:.24em; text-transform:uppercase; color:var(--ouro-esc); }
+.on-dark .luma-sub{ color:var(--ouro); }
+
+/* barra de assinatura padronizada no rodapé das artes */
+.sign-bar{
+  position:absolute; left:0; right:0; bottom:0;
+  display:flex; align-items:center; justify-content:center;
+  padding:38px 64px;
+}
+.sign-bar .side{ position:absolute; font-family:var(--serif); font-size:30px; letter-spacing:.12em; opacity:.5; }
+.sign-bar .side.l{ left:64px; }
+.sign-bar .side.r{ right:64px; font-family:var(--sans); font-size:24px; letter-spacing:.18em; }
+
+/* ============================================================
+   TRATAMENTO DE FOTO — transforma foto amadora em profissional
+   Aplique .foto + uma classe de filtro no wrapper da imagem.
+   ============================================================ */
+.foto{ position:relative; overflow:hidden; background:var(--verde); }
+.foto img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Filtros de tonalidade unificada */
+.foto.ft-luma img{ filter:saturate(.86) contrast(1.07) brightness(1.03); }
+.foto.ft-warm img{ filter:saturate(.9) contrast(1.06) brightness(1.04) sepia(.10); }
+.foto.ft-clinico img{ filter:saturate(.78) contrast(1.1) brightness(1.06); }
+
+/* Camada de cor de marca (unifica temperaturas diferentes) */
+.foto.ft-luma::before,.foto.ft-warm::before{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(180deg, rgba(201,168,123,.10), rgba(47,58,46,.05) 55%, rgba(47,58,46,.22));
+  mix-blend-mode:multiply;
+}
+/* leve brilho creme no topo para uniformizar luz */
+.foto.glow::after{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:radial-gradient(120% 80% at 50% -10%, rgba(245,242,237,.28), transparent 60%);
+}
+/* base escura para legibilidade de texto/legenda sobre foto */
+.foto.shade-bottom::after{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(180deg, transparent 38%, rgba(38,42,35,.78));
+}
+
+/* Moldura dourada fina (estilo editorial da marca) */
+.moldura{ padding:10px; background:var(--creme); box-shadow:0 24px 60px -28px rgba(47,58,46,.5); }
+.moldura .foto{ outline:1.5px solid var(--ouro); outline-offset:-1px; }
+
+/* ============================================================
+   PALCO / CANVAS — artes em tamanho fixo de rede social
+   1080×1350 (feed 4:5) e 1080×1080 (quadrado)
+   ============================================================ */
+.canvas{ position:relative; width:1080px; height:1350px; overflow:hidden; background:var(--creme); color:var(--tinta); }
+.canvas.sq{ height:1080px; }
+.canvas.verde{ background:var(--verde); color:var(--creme); }
+
+/* miniatura responsiva: embrulha .canvas e escala por --s */
+.thumb{ --s:.34; width:calc(1080px*var(--s)); height:calc(1350px*var(--s)); position:relative; overflow:hidden;
+  border-radius:10px; box-shadow:0 18px 48px -22px rgba(47,58,46,.45); background:var(--creme); }
+.thumb.sq{ height:calc(1080px*var(--s)); }
+.thumb > .canvas{ position:absolute; top:0; left:0; transform:scale(var(--s)); transform-origin:top left; }
+
+/* textura de padrão (monogramas) — fundo decorativo sutil */
+.pattern-soft{ background-image:radial-gradient(var(--ouro) .8px, transparent .8px); background-size:34px 34px; opacity:.10; }
+
+/* ============================================================
+   BOTÕES / CTA
+   ============================================================ */
+.btn{ font-family:var(--sans); font-weight:600; letter-spacing:.02em; border:0; cursor:pointer;
+  display:inline-flex; align-items:center; gap:.6em; border-radius:999px; text-decoration:none;
+  padding:1.05em 2em; transition:transform .15s ease, box-shadow .25s ease, background .2s ease; }
+.btn-ouro{ background:var(--ouro); color:#fff; box-shadow:0 14px 30px -12px rgba(166,130,76,.7); }
+.btn-ouro:hover{ transform:translateY(-2px); box-shadow:0 18px 36px -12px rgba(166,130,76,.8); }
+.btn-verde{ background:var(--verde); color:var(--creme); }
+.btn-verde:hover{ transform:translateY(-2px); }
+.btn-ghost{ background:transparent; color:var(--verde); border:1.5px solid color-mix(in oklab, var(--verde) 35%, transparent); }
+.btn-wpp{ background:#25D366; color:#fff; box-shadow:0 14px 30px -12px rgba(37,211,102,.65); }
+.btn-wpp:hover{ transform:translateY(-2px); }
+
+/* chips */
+.chip{ display:inline-flex; align-items:center; gap:.5em; padding:.5em 1em; border-radius:999px;
+  font-size:.8rem; font-weight:600; letter-spacing:.02em; background:color-mix(in oklab,var(--ouro) 18%, white);
+  color:var(--ouro-esc); }
