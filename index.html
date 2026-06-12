@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="ext-resource-dependency" content="assets/mesoterapia.mp4">
 <title>Luma Pessoa · Fisioterapia Dermatofuncional &amp; Tricologia</title>
 <link rel="stylesheet" href="brand.css">
 <style>
@@ -340,7 +341,16 @@
 <section class="meso" id="mesoterapia">
   <div class="wrap grid">
     <div class="vidframe">
-      <video src="assets/mesoterapia.mp4" autoplay muted loop playsinline controls preload="metadata"></video>
+      <video data-src="assets/mesoterapia.mp4" autoplay muted loop playsinline controls preload="metadata"></video>
+      <script>
+      (function(){
+        var v=document.currentScript.previousElementSibling;
+        fetch(v.getAttribute('data-src')).then(function(r){return r.blob();}).then(function(b){
+          v.src=URL.createObjectURL(b); v.load();
+          v.play().catch(function(){});
+        });
+      })();
+      </script>
     </div>
     <div>
       <span class="eyebrow">Estética Corporal</span>
