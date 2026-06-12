@@ -16,7 +16,6 @@
   .topbar .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:14px; padding-bottom:14px; }
   .topbar nav{ display:flex; gap:30px; align-items:center; }
   .topbar nav a{ text-decoration:none; color:var(--verde); font-weight:500; font-size:.92rem; letter-spacing:.02em; }
-  .topbar nav a.cta{ }
   .topbar nav a.cta{ color:var(--creme); }
   @media(max-width:760px){ .topbar nav a:not(.cta){ display:none; } }
 
@@ -27,10 +26,6 @@
   .hero h1 em{ font-style:italic; color:var(--ouro-esc); }
   .hero .lead{ font-size:1.18rem; color:var(--tinta-soft); max-width:46ch; line-height:1.65; }
   .hero .cta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:34px; }
-  .hero .trust{ display:flex; gap:26px; flex-wrap:wrap; margin-top:40px; }
-  .hero .trust .t{ }
-  .hero .trust .n{ font-family:var(--serif); font-size:2rem; color:var(--verde); }
-  .hero .trust .l{ font-size:.82rem; color:var(--tinta-soft); letter-spacing:.04em; }
   .hero-photo{ position:relative; }
   .hero-photo .moldura{ border-radius:10px; }
   .hero-photo .foto{ aspect-ratio:4/5; border-radius:4px; }
@@ -93,15 +88,6 @@
   .step h3{ color:var(--creme); font-size:1.25rem; margin:0 0 .4em; }
   .step p{ color:var(--bege); font-size:.98rem; line-height:1.6; margin:0; }
   @media(max-width:860px){ .steps .row{ grid-template-columns:1fr; gap:34px; } }
-
-  /* CTA final */
-  .final{ padding:100px 0; text-align:center; }
-  .final .box{ background:linear-gradient(160deg,#C9A87B,#A6824C); border-radius:30px; padding:72px 40px;
-    color:#fff; position:relative; overflow:hidden; }
-  .final .box .pat{ position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.5) .8px,transparent .8px); background-size:30px 30px; opacity:.18; }
-  .final h2{ font-size:clamp(2.2rem,5vw,3.6rem); color:#fff; margin:0 0 .3em; position:relative; }
-  .final p{ color:#fff; opacity:.94; font-size:1.15rem; max-width:46ch; margin:0 auto 34px; position:relative; }
-  .final .btn{ position:relative; }
 
   /* footer */
   footer{ background:var(--verde); color:var(--bege); padding:60px 0 40px; }
@@ -176,11 +162,6 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.2-.8-2.7-1.1-4.4-3.9-4.5-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.6.1.3.7 1.1 1.4 1.8.9.8 1.7 1 2 1.1.2.1.4.1.5-.1l.6-.8c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.6 0 1z"/></svg>
           Agendar avaliação</a>
         <a class="btn btn-ghost" href="#tratamentos">Conhecer tratamentos</a>
-      </div>
-      <div class="trust">
-        <div class="t"><div class="n">+500</div><div class="l">atendimentos realizados</div></div>
-        <div class="t"><div class="n">2 anos</div><div class="l">de instituto próprio</div></div>
-        <div class="t"><div class="n">100%</div><div class="l">protocolos personalizados</div></div>
       </div>
     </div>
     <div class="hero-photo">
@@ -284,21 +265,6 @@
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="final" id="agendar">
-  <div class="wrap">
-    <div class="box">
-      <div class="pat"></div>
-      <h2>Pronta para cuidar dos seus fios?</h2>
-      <p>Agende sua avaliação capilar e receba um plano feito sob medida para você.</p>
-      <a class="btn btn-verde" href="https://wa.me/5586999884609" target="_blank" rel="noopener">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.2-.8-2.7-1.1-4.4-3.9-4.5-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.6.1.3.7 1.1 1.4 1.8.9.8 1.7 1 2 1.1.2.1.4.1.5-.1l.6-.8c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.6 0 1z"/></svg>
-        Falar no WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-
 <!-- CONTATO (form) -->
 <section class="contato" id="contato">
   <div class="wrap">
@@ -307,7 +273,7 @@
       <div class="left">
         <span class="eyebrow" style="color:var(--ouro)">Fale comigo</span>
         <h2>Vamos conversar?</h2>
-        <p>Preencha ao lado e sua mensagem chega direto pra mim. Respondo pessoalmente para agendar sua avaliação ou esclarecer dúvidas.</p>
+        <p>Preencha e sua mensagem chega direto pra mim — eu respondo pessoalmente. Se preferir, use um dos canais abaixo.</p>
         <div class="direct">
           <a id="wppDirect2" href="#contato"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="#C9A87B"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.2-.8-2.7-1.1-4.4-3.9-4.5-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.6.1.3.7 1.1 1.4 1.8.9.8 1.7 1 2 1.1.2.1.4.1.5-.1l.6-.8c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.6 0 1z"/></svg></span> WhatsApp · (86) 99988-4609</a>
           <a href="https://instagram.com/lumapessoa.tricofisio" target="_blank" rel="noopener"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#C9A87B" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#C9A87B" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="#C9A87B"/></svg></span> @lumapessoa.tricofisio</a>
